@@ -1,0 +1,25 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: blueviolet;
+}
+fieldset{
+    border-color: black;
+}
+#unsorted{
+    border:solid black 1px;
+
+}
+#sorted{
+    border:solid black 1px;
+
+}
+.center{
+    text-align: center;
+}
+.kaka{
+    text-align: center;
+}

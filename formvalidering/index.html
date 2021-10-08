@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <fieldset>
+            <legend>
+                Registrera dig
+            </legend>
+
+            <div>
+                <div class="top">
+                    <label for="First_Name">Förnamn:</label> <br>
+                    <input id="firstname" type="text" name="fname">
+                </div>
+                <br>
+
+                <div class="top">
+                    <label for="Password"> Lösenord:</label>
+                    <input id="password1" type="password" name="fname">
+                </div>
+                <div class="top">
+                    <label for="Password"> Upprepa Lösenord:</label>
+                    <input id="password2" type="password" name="fname">
+                </div>
+                <br>
+
+                <div id="bot">
+                    <label for="Last_Name">Efternamn:</label> <br>
+                    <input id="lastname" type="text" name="fname">
+
+                    <label for="email">E-mail</label>
+                    <input id="mail" type="text" name="fname">
+                </div>
+                <script>
+                    function submit() {
+                        var varfirstname = document.getElementById("firstname").value
+
+
+                        if (varfirstname != "") {
+
+                        } else {
+                            alert("Skriv in ett förnamn")
+                            return
+                        }
+                        var varpassword1 = document.getElementById("password1").value
+
+                        if (varpassword1.length < 6) {
+                            alert("Ditt lösenord måste innehålla minst 6 tecken")
+                            return
+                        }
+                        var varpassword2 = document.getElementById("password2").value
+
+                        if (varpassword2 != varpassword1) {
+                            alert("Lösenorden matchar ej")
+                            return
+                        }
+                        var varmail = document.getElementById("mail").value
+                        if (!varmail.match(/^\S+@\S+\.\S+$/)) {
+                            alert("Email är ej korrekt")
+                            return
+                        }
+                        var varlastname = document.getElementById("lastname").value
+
+                        if (varlastname != "") {
+
+                        } else {
+                            alert("Skriv in ett efternamn")
+                            return
+                        }
+                        location.href = 'klar.html';
+
+
+
+                    }
+                </script>
+            </div>
+
+        </fieldset>
+    </div>
+
+    <div>
+        <fieldset>
+
+            <legend>
+                Utbildning
+            </legend>
+
+            <div>
+                <label for="School">Välj Skola</label><br>
+
+                <select name="School" id="School">
+
+                    <option value="Nti">Skola 1</option>
+                    <option value="Komvux">Skola 2</option>
+                    <option value="Södra Latin">Skola 3</option>
+                    <option value="Norra Real">Skola 4</option>
+
+                </select>
+
+                <br>
+                <label for="Birth_Date">Program </label><br>
+                <input type="text" name="fname">
+                <br>
+
+            </div>
+        </fieldset>
+    </div>
+    <button id="btnsubmit" type="submit" value="Submit" onclick="submit()">Submit</button>
+
+
+
+
+    <div class="center">
+        <h3>Unsorted list of random numbers</h3>
+        <div id="unsorted">
+        </div>
+        <h3>Sorted list of random numbers</h3>
+        <div id="sorted">
+        </div>
+    </div>
+
+    <script>
+        // Code from https://stackoverflow.com/a/29246176
+        function randomInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        var numbers = []
+
+        while (numbers.length < 10) {
+            let tmp = randomInteger(0, 100)
+
+            if (!numbers.includes(tmp)) {
+                numbers.push(tmp)
+            }
+
+
+        }
+        // console.log(numbers)
+        // console.log(numbers.sort((a,b)=>a-b));
+
+
+        document.getElementById('unsorted').innerHTML = numbers;
+
+        var numbersSorted = numbers.sort((a, b) => a - b);
+
+        document.getElementById('sorted').innerHTML = numbersSorted;
+    </script>
+      <div>
+        <fieldset>
+            <legend>
+                Registrera dig
+            </legend>
+
+            <div>
+                <form method="POST" action="klar.html">
+                <!-- html validering -->
+                <div class="top">
+                    <label for="First_Name">Förnamn:</label> <br>
+                    <input id="firstnamehtml" type="text" required>
+                </div>
+                <br>
+
+                <div class="top">
+                    <label for="Password"> Lösenord:</label>
+                    <input id="password1html" type="password" required minlength="6">
+                </div>
+                <div class="top">
+                    <label for="Password"> Upprepa Lösenord:</label>
+                    <input id="password2html" type="password" required minlength="6" >
+                </div>
+                <br>
+
+                <div id="bot2">
+                    <label for="Last_Name">Efternamn:</label> <br>
+                    <input id="lastnamehtml" type="text"  required>
+
+                    <label for="email">E-mail</label>
+                    <input id="mail2" type="email" pattern="^\S+@\S+\.\S+$">
+                   
+                    <input type="submit" value="Submit" href="klar.html " >
+               
+                </div>
+                
+                
+              
+</body>
+
+</html>
